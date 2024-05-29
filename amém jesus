@@ -1,0 +1,45 @@
+use rec_22a;
+-- id: Um identificador único para cada médico, que é a chave primária da tabela. 
+-- nome: O nome completo do médico. 
+-- especialidade: A especialidade médica do médico, como Cardiologia, Pediatria, etc. 
+-- crm: O número do Conselho Regional de Medicina, que deve ser único para cada médico. 
+-- telefone: O número de telefone de contato do médico. 
+-- email: O endereço de e-mail do médico. 
+-- endereco: O endereço residencial ou comercial do médico. 
+-- data_contratacao: A data em que o médico foi contratado pelo hospital. 
+-- horario_trabalho: Para armazenar os horários de trabalho do médico, como "08:00 - 17:00". 
+-- status: Para indicar se o médico está ativo ou inativo no hospital. 
+-- salario: Para armazenar o salário do médico. 
+-- data_nascimento: Para armazenar a data de nascimento do médico. 
+-- genero: Para armazenar o gênero do médico. 
+-- especializacoes_adicionais: Para armazenar informações sobre especializações adicionais ou certificações que o médico possa ter.
+
+-- 1. Selecionar os nomes e especialidades de todos os médicos.
+SELECT nome, especialidade FROM medicos;
+
+-- 2. Selecionar os médicos que possuem um salário entre 15000 e 16000.
+SELECT * FROM medicos WHERE salario BETWEEN 15000 AND 16000;
+
+-- 3. Selecionar os nomes e e-mails dos médicos, exibindo os resultados em ordem alfabética pelo nome.
+SELECT nome, email FROM medicos ORDER BY nome_medicos, emails_medicos ASC;
+
+-- 4. Selecionar os médicos ordenados pela data de contratação, do mais recente para o mais antigo.
+SELECT * FROM medicos ORDER BY data_contratacao DESC;
+
+-- 5. Selecionar os médicos com especializações adicionais que contenham a palavra 'Cirurgia'.
+SELECT * FROM medicos WHERE especialidades_adicionais = 'Cirurgia';
+
+-- 6. Selecionar os médicos que foram contratados após o ano de 2020.
+SELECT * FROM medicos WHERE data_contratacao < 2020;
+
+-- 7. Selecionar os médicos que trabalham no horário da tarde (12:00 - 20:00 ou 11:00 - 19:00).
+SELECT * FROM medicos WHERE horario_trabalho IN ('12:00 - 20:00', '11:00 - 19:00');
+
+-- 8. Selecionar os médicos cujo número de telefone termina com '8901'.
+SELECT * FROM medicos WHERE telefone LIKE '%8901';
+
+-- 9. Selecionar os nomes dos médicos que são especialistas em Cardiologia.
+SELECT nomes FROM medicos WHERE especialidade = 'Cardiologia';
+
+-- 10. Selecionar a média dos salários de todos os médicos.
+SELECT AVG(salario) FROM medicos;
